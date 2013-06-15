@@ -1,7 +1,7 @@
 # Polish version by SKmedix
 version: 1
 prefix:
-  main: '&6[&4&lSG&6]'
+  main: '&6[&4&lECC-SG&6]'
   states:
     info: ''
     warning: '&c[Uwaga] '
@@ -14,7 +14,7 @@ messages:
     countdown: '&6Gra zacznie sie za {$t}'
     goodluck: '&6Powodzenia!'
     playersremaining: '&2Pozostalo &e{$activeplayers} &2graczy!'
-    playerwin: '&e{$player} &3zabil&e {$victim} &3i tym wygral Survival Games na &3arenie {$arena}'
+    playerwin: '&e{$player} &3zabil&e {$victim} &3i tym wygral ECC Survival Games na &3arenie {$arena}'
     disablegame: '&cGra wylaczona!'
     spectate: '&aTeraz jestes obserwatorem! Uzyj /sg leave by wrocic do poczekalni'
     graceperiodend: '&5Grace period has ended!'
@@ -28,7 +28,7 @@ messages:
   info:
     success: '&aKomende &e{$command} &awykonano pomyslnie.'
     unsuccess: '&aKomende &e{$command} &wykonano bezskutecznie.'
-    stats: '&9Twoje statystyki SurvivalGames do tej pory.'
+    stats: '&9Twoje statystyki ECC Survival Games do tej pory.'
     deleted: '&a{$input} usunieto.'
     lobbyspawn: '&aPoczekalnie ustawiono pomyslnie.'
     spawnset: '&aOdrodzenie &e{$num} &ana arenie &e{$arena} &austawiono.'
@@ -37,7 +37,7 @@ messages:
     kills: 'Zabicia'
     deaths: 'Smierci'
     killstreaks: 'KillStreaks'
-    noarenas: "Bral Aren"
+    noarenas: "Brak Aren"
     arenas: "Areny"
   error: 
     gamefull: '&cArena {$arena} jest pelna!'

@@ -111,19 +111,19 @@ public class CommandHandler implements CommandExecutor {
 
 		Player player = (Player) sender;
 
-		if (SurvivalGames.config_todate == false) {
+		if (!(SurvivalGames.config_todate)) {
 			msgmgr.sendMessage(PrefixType.WARNING, "The config file is out of date. Please tell an administrator to reset the config.", player);
 			return true;
 		}
 
-		if (SurvivalGames.dbcon == false) {
+		if (!(SurvivalGames.dbcon)) {
 			msgmgr.sendMessage(PrefixType.WARNING, "Could not connect to server. Plugin disabled.", player);
 			return true;
 		}
 
 		if (cmd1.getName().equalsIgnoreCase("survivalgames")) {
 			if (args == null || args.length < 1) {
-				msgmgr.sendMessage(PrefixType.INFO, "Version " + pdfFile.getVersion() + " by Double0negative", player);
+				msgmgr.sendMessage(PrefixType.INFO, "Version " + pdfFile.getVersion() + " Original by Double0negative, Customizations by http://bit.ly/12E1jcw", player);
 				msgmgr.sendMessage(PrefixType.INFO, "Type /sg help <player | staff | admin> for command information", player);
 				return true;
 			}

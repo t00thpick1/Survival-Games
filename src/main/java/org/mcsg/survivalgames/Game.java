@@ -28,6 +28,11 @@ import org.mcsg.survivalgames.util.Kit;
 
 public class Game {
 
+	public FileConfiguration getConfig()
+	{
+		return config;
+	}
+
 	public static enum GameMode {
 		DISABLED, LOADING, INACTIVE, WAITING,
 		STARTING, INGAME, FINISHING, RESETING, ERROR
@@ -426,9 +431,9 @@ public class Game {
 					}
 				}, config.getInt("grace-period") * 20);
 			}
-			if(config.getBoolean("deathmatch.enabled")){
+			if(config.getBoolean("timelimit.enabled")){
 				tasks.add(Bukkit.getScheduler().scheduleSyncDelayedTask(GameManager.getInstance().getPlugin(), 
-						new DeathMatch(), config.getInt("deathmatch.time") * 20 * 60));
+						new TimeLimit(), config.getInt("timelimit.time") * 20 * 60));
 			}
 		}
 
@@ -588,12 +593,18 @@ public class Game {
 			l.getWorld().strikeLightningEffect(l);
 		}
 
-		if (getActivePlayers() <= config.getInt("endgame.players") && config.getBoolean("endgame.fire-lighting.enabled") && !endgameRunning) {
+		if (getActivePlayers() <= config.getInt("endgame.players") && getActivePlayers() > 1)  {
 
+			if (config.getBoolean("endgame.fire-lighting.enabled") && !endgameRunning)  {
 			tasks.add(Bukkit.getScheduler().scheduleSyncRepeatingTask(GameManager.getInstance().getPlugin(),
 					new EndgameManager(),
 					0,
 					config.getInt("endgame.fire-lighting.interval") * 20));
+			}
+
+			if (config.getBoolean("endgame.deathmatch.enabled"))  {
+				ECCEndgame.killPlayer(this, p);
+			}
 		}
 
 		if (activePlayers.size() < 2 && mode != GameMode.WAITING) {
@@ -906,7 +917,7 @@ public class Game {
 						p.getLocation().getWorld().strikeLightning(p.getLocation());
 					}
 				}
-			}, config.getInt("deathmatch.killtime") * 20 * 60));
+			}, config.getInt("timelimit.killtime") * 20 * 60));
 		}
 	}
 

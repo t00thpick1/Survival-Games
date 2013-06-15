@@ -10,8 +10,6 @@ import org.bukkit.World;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
-import org.mcsg.survivalgames.util.NameUtil;
-
 
 
 public class LobbyWall {
@@ -85,9 +83,9 @@ public class LobbyWall {
         Sign s1 = signs.get(1);
 
         //sign 0
-        s0.setLine(0, "[SurvivalGames]");
-        s0.setLine(1, "Click to join");
-        s0.setLine(2, "Arena " + gameid);
+        s0.setLine(0, ChatColor.BLUE + "[SurvivalGames]");
+        s0.setLine(1, ChatColor.GREEN +"Click to join");
+        s0.setLine(2, ChatColor.GREEN + "Arena "+ ChatColor.RED + gameid);
 
         //sign 1
         s1.setLine(0, game.getName());
@@ -110,7 +108,7 @@ public class LobbyWall {
         //live player data
         ArrayList < String > display = new ArrayList < String > ();
         for (Player p: game.getAllPlayers()) {
-            display.add((game.isPlayerActive(p) ? ChatColor.BLACK : ChatColor.GRAY) + NameUtil.stylize(p.getName(), true, !game.isPlayerActive(p)));
+            display.add((game.isPlayerActive(p) ? ChatColor.BLACK : ChatColor.GRAY) + p.getName());
         }
 
         try {
