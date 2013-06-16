@@ -906,7 +906,7 @@ public class Game {
 	}
 
 
-	class DeathMatch implements Runnable{
+	class TimeLimit implements Runnable{
 		public void run(){
 			for(Player p: activePlayers){
 				for(int a = 0; a < spawns.size(); a++){
