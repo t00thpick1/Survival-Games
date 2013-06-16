@@ -145,6 +145,9 @@ public class Game {
 		return arena;
 	}
 
+	public StatsManager getStatsManager() {
+		return sm;
+	}
 
 	/*
 	 * 
