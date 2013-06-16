@@ -83,9 +83,9 @@ public class LobbyWall {
         Sign s1 = signs.get(1);
 
         //sign 0
-        s0.setLine(0, ChatColor.BLUE + "[SurvivalGames]");
-        s0.setLine(1, ChatColor.GREEN +"Click to join");
-        s0.setLine(2, ChatColor.GREEN + "Arena "+ ChatColor.RED + gameid);
+        s0.setLine(0, "[SurvivalGames]");
+        s0.setLine(1, ChatColor.DARK_RED +"Click to join");
+        s0.setLine(2, ChatColor.DARK_BLUE + "Arena " + gameid);
 
         //sign 1
         s1.setLine(0, game.getName());

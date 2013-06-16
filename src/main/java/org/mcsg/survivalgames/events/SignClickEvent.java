@@ -1,5 +1,6 @@
 package org.mcsg.survivalgames.events;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
@@ -34,7 +35,7 @@ public class SignClickEvent implements Listener{
                     GameManager.getInstance().autoAddPlayer(e.getPlayer());
                 }
                 else{
-                    String game = lines[2].replace("Arena ", "");
+                    String game = lines[2].replace(ChatColor.DARK_BLUE + "Arena ", "");
                     int gameno  = Integer.parseInt(game);
                     GameManager.getInstance().addPlayer(e.getPlayer(), gameno);
                 }
