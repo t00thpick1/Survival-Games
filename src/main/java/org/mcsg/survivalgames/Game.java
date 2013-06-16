@@ -232,6 +232,7 @@ public class Game {
 					if (spawns.get(a) == null) {
 						placed = true;
 						spawns.put(a, p);
+						Bukkit.getLogger().info("Adding player " + p.getName() + " to sg " + gameID + " at sp " + a);
 						p.setGameMode(org.bukkit.GameMode.SURVIVAL);
 
 						p.teleport(SettingsManager.getInstance().getLobbySpawn());
