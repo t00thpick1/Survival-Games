@@ -16,37 +16,37 @@ commands:
 
 permissions:
     sg.player.*:
-        default: true
+        default: false
         description: SurvivalGames Player Commands
         children:
-            sg.player.play: true
-            sg.player.vote: true
+            sg.player.play: false
+            sg.player.vote: false
             sg.player.spectate: false
-            sg.player.joinlobby: true
+            sg.player.joinlobby: false
             sg.player.sponsor: false
-            sg.player.listarenas: true
-            sg.player.list: true
+            sg.player.listarenas: false
+            sg.player.list: false
     sg.player.play:
         description: Allows the user to click a sign to join a game.
-        default: true
+        default: false
     sg.player.vote:
         description: Allows the user to vote to start a game.
-        default: true
+        default: false
     sg.player.spectate:
         description:  Allows the user to spectate a game.
         default: false
     sg.player.joinlobby:
         description: Allows the use of /sg join to join the lobby.
-        default: true
+        default: false
     sg.player.sponsor:
         description: Sponsor a player!
         default: false
     sg.player.listarenas:
         description: List all arenas set up.
-        default: true
+        default: false
     sg.player.list:
         description: List all players in the arena you are playing in.
-        default: true
+        default: false
 
     sg.staff.*:
         default: op
