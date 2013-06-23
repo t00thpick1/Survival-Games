@@ -36,7 +36,7 @@ public class Game {
 
 	public static enum GameMode {
 		DISABLED, LOADING, INACTIVE, WAITING,
-		STARTING, INGAME, FINISHING, RESETING, ERROR
+		STARTING, INGAME, FINISHING, RESETTING, ERROR
 	}
 
 	private GameMode mode = GameMode.DISABLED;
@@ -287,7 +287,7 @@ public class Game {
 		}
 		if (mode == GameMode.INGAME) msgmgr.sendFMessage(PrefixType.WARNING, "error.alreadyingame", p);
 		else if (mode == GameMode.DISABLED) msgmgr.sendFMessage(PrefixType.WARNING, "error.gamedisabled", p, "arena-"+gameID);
-		else if (mode == GameMode.RESETING) msgmgr.sendFMessage(PrefixType.WARNING, "error.gamereseting", p);
+		else if (mode == GameMode.RESETTING) msgmgr.sendFMessage(PrefixType.WARNING, "error.gameresetting", p);
 		else msgmgr.sendMessage(PrefixType.INFO, "Cannot join game!", p);
 		LobbyManager.getInstance().updateWall(gameID);
 		return false;
@@ -517,7 +517,8 @@ public class Game {
 			restoreInv(p);
 			activePlayers.remove(p);
 			inactivePlayers.remove(p);
-			for (Object in : spawns.keySet().toArray()) {
+
+			for (Object in : spawns.keySet()) {
 				if (spawns.get(in) == p) spawns.remove(in);
 			}
 			LobbyManager.getInstance().clearSigns(gameID);
@@ -742,7 +743,7 @@ public class Game {
 		vote = 0;
 		voted.clear();
 
-		mode = GameMode.RESETING;
+		mode = GameMode.RESETTING;
 		endgameRunning = false;
 
 		Bukkit.getScheduler().cancelTask(endgameTaskID);
