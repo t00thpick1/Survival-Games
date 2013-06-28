@@ -3,7 +3,10 @@ package org.mcsg.survivalgames;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -518,9 +521,12 @@ public class Game {
 			activePlayers.remove(p);
 			inactivePlayers.remove(p);
 
-			for (Object in : spawns.keySet()) {
-				if (spawns.get(in) == p) spawns.remove(in);
-			}
+	        Iterator<Entry<Integer, Player>> iter = spawns.entrySet().iterator();
+	        while (iter.hasNext()) {
+	            if(iter.next().getValue() == p) {
+	                iter.remove();
+	            }
+	        }
 			LobbyManager.getInstance().clearSigns(gameID);
 		}
 
